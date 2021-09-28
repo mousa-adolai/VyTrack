@@ -1,4 +1,4 @@
-package com.vytrack.tests.karina;
+package com.vytrack.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
