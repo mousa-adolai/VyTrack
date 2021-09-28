@@ -1,9 +1,9 @@
-package tests.mousa;
+package com.vytrack.tests.mousa;
 
 import org.junit.jupiter.api.Test;
-import utilities.ConfigReader;
-import utilities.TestBase;
-import utilities.VyTrackUtil;
+import com.vytrack.utilities.ConfigReader;
+import com.vytrack.utilities.TestBase;
+import com.vytrack.utilities.VyTrackUtil;
 
 public class PracticeLogin extends TestBase {
 

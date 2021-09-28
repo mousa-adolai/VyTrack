@@ -1,4 +1,4 @@
-package utilities;
+package com.vytrack.utilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
