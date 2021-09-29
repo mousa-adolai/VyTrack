@@ -27,6 +27,13 @@ public class VyTrackLogin {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+//fab made
+    public void goTo(){
+        Driver.getDriver().navigate().to(ConfigReader.read("url"));
+    }
+    // fab done
+
+
 
     public void login(String username, String password) {
         usernameField.sendKeys(username);
