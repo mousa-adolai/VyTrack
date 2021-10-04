@@ -17,18 +17,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+
 public class userStory_2 extends TestBase {
     VyTrackLogin lgn = new VyTrackLogin();
     CreateCarPage createCarPage = new CreateCarPage();
     Faker faker = new Faker();
 
-    // 2. Story: As a user, I should be create vehicles/cars.
-    //   AC #1: only store/sales manager able to create car
     @Test
     public void createCarTest() throws InterruptedException {
+        // 2. Story: As a user, I should be create vehicles/cars.
+        //   AC #1: only store/sales manager able to create car
         lgn.goTo();
         // Given store/sales manager is on the homePage
-        lgn.login(ConfigReader.read("username_salesmanager"), ConfigReader.read("password"));
+        lgn.loginAsSalesManager();
         Thread.sleep(2000);
         // When user select “Vehicles” under Fleet module
         WebElement fleetModule = driver.findElement(By.xpath("//span[@class='title title-level-1' and normalize-space(.)='Fleet']"));
@@ -44,19 +46,7 @@ public class userStory_2 extends TestBase {
 //     //a[@title='Create Car']
         System.out.println("createCarButton.isDisplayed() = " + createCarButton.isDisplayed());
         actions.moveToElement(createCarButton).doubleClick().perform();
-
         // When user fill out general information
-        //driver.findElement(By.xpath("//input[starts-with(@id,'custom_entity_type_LicensePlate')]")).sendKeys(faker.name().firstName());
-
-        //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", createCarPage.licensePlate);
-
-//        actions.moveToElement(createCarPage.licensePlate);
-//        actions.perform();
-
-//        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0," + (createCarPage.licensePlate.getLocation().getY() - 100) + ")", new Object[]{""});
-
-//        VyTrackUtil.scrollIntoView(createCarPage.licensePlate);
-
         createCarPage.licensePlate.sendKeys(faker.name().firstName());
         createCarPage.tagsJuniorChechBox.click();
         createCarPage.driverBox.sendKeys(faker.name().lastName());
@@ -93,20 +83,31 @@ public class userStory_2 extends TestBase {
        // WebDriverWait wait = new WebDriverWait(driver, 60);
         //wait.until(ExpectedConditions.visibilityOf("");
 
-
+        // Then verify “Entity saved” confirm message
         String actualTitle = driver.findElement(By.xpath("//*[normalize-space(.)='Entity saved']")).getText();
         Assertions.assertEquals(actualTitle, expectedTitle);
 
-
-        // Then verify “Entity saved” confirm message
-
         /////////////////////////////////////////////////////////////////////////
+
     /*
     AC #2: drivers should not able to create a car
     Given driver is on the homePage
     When user select “Vehicles” under Fleet module
     Then “create car” button should not be visible
     */
+    }
+    @Test
+    public void negativeTest() throws InterruptedException {
+        lgn.goTo();
+        lgn.loginAsTruckDriver();
+        WebElement fleetModule = driver.findElement(By.xpath("//span[@class='title title-level-1' and normalize-space(.)='Fleet']"));
+        Actions actions = new Actions(driver);
+        Thread.sleep(2000);
+        actions.moveToElement(fleetModule).perform();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//span[@class='title title-level-2' and normalize-space(.)='Vehicles']")).click();
+
+      //  Assertions.assertTrue(createCarPage.entitySavedMessageText);
 
 
     }
