@@ -1,4 +1,4 @@
-package com.vytrack.tests.fabricio;
+package com.vytrack.tests;
 
 import com.vytrack.pages.CommonElements;
 import com.vytrack.pages.VyTrackCalendarEvents;

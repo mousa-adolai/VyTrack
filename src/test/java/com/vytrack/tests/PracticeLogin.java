@@ -1,4 +1,4 @@
-package com.vytrack.tests.mousa;
+package com.vytrack.tests;
 
 import org.junit.jupiter.api.Test;
 import com.vytrack.utilities.ConfigReader;

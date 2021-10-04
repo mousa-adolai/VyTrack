@@ -1,4 +1,4 @@
-package com.vytrack.tests.aysel;
+package com.vytrack.tests;
 
 import com.github.javafaker.Faker;
 import com.vytrack.pages.CreateCarPage;
