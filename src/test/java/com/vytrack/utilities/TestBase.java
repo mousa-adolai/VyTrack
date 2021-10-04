@@ -13,7 +13,7 @@ public abstract class TestBase {
     @BeforeEach
     public void setUpBrowser(){
         driver = Driver.getDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterEach
