@@ -1,8 +1,9 @@
 package com.vytrack.tests;
 
-import com.vytrack.pages.CommonElements;
+import com.vytrack.pages.MenuBar;
 import com.vytrack.pages.VyTrackCalendarEvents;
 import com.vytrack.pages.VyTrackLogin;
+import com.vytrack.utilities.BrowserUtil;
 import com.vytrack.utilities.ConfigReader;
 import com.vytrack.utilities.TestBase;
 import org.junit.jupiter.api.Test;
@@ -23,12 +24,12 @@ public class VyTrackPOM_Test extends TestBase {
         vyTrackLogin.goTo();
         vyTrackLogin.login("user30" , "UserUser123");
 
-        CommonElements commonElements = new CommonElements();
+        MenuBar menuBar = new MenuBar();
 
         Actions actions = new Actions( driver );
-        actions.moveToElement(commonElements.activitiesTab ).perform();
-        commonElements.calendarTab.click();
-        Thread.sleep(8000);
+        actions.moveToElement(menuBar.activitiesTab ).perform();
+        menuBar.calendarTab.click();
+        BrowserUtil.waitFor(8);
 
 
         //VyTrackCalendarEvents vyTrackCalendarEvents = new VyTrackCalendarEvents();
