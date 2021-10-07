@@ -14,11 +14,10 @@ public abstract class TestBase {
     public void setUpBrowser(){
         driver = Driver.getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
     }
-
     @AfterEach
     public void closeBrowser(){
         Driver.closeBrowser();
     }
-
 }
