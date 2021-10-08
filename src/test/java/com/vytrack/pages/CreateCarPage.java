@@ -82,7 +82,7 @@ public class CreateCarPage {
     @FindBy(xpath = "//input[starts-with(@id,'custom_entity_type_Logo_file')]")
     public WebElement logoBox;
 
-    @FindBy(xpath = "(//button[normalize-space(.)='Save and Close'])[1]  ")
+    @FindBy(xpath = "(//button[normalize-space(.)='Save and Close'])[1]")
     public WebElement saveAndCloseButton;
 
     @FindBy(xpath = "//button[.='Today']")
@@ -94,6 +94,8 @@ public class CreateCarPage {
     @FindBy(xpath = "//*[normalize-space(.)='Entity saved']")
     public  WebElement entitySavedMessageText;
 
+    @FindBy(xpath = "//a[@title='Create Car']")
+    public  WebElement createCarButton;
 
 }
 

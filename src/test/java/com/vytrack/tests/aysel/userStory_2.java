@@ -18,7 +18,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-
 public class userStory_2 extends TestBase {
     VyTrackLogin lgn = new VyTrackLogin();
     CreateCarPage createCarPage = new CreateCarPage();
@@ -75,27 +74,23 @@ public class userStory_2 extends TestBase {
         createCarPage.saveAndCloseButton.click();
 
         // Then verify “Entity saved” confirm message
-
         String expectedTitle = "Entity saved";
 
-        //createCarButton.entitySavedMessage
-        WebElement text= driver.findElement(By.xpath("//*[normalize-space(.)='Entity saved']"));
-       // WebDriverWait wait = new WebDriverWait(driver, 60);
-        //wait.until(ExpectedConditions.visibilityOf("");
-
+        WebElement text = driver.findElement(By.xpath("//*[normalize-space(.)='Entity saved']"));
+        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(text));
         // Then verify “Entity saved” confirm message
         String actualTitle = driver.findElement(By.xpath("//*[normalize-space(.)='Entity saved']")).getText();
         Assertions.assertEquals(actualTitle, expectedTitle);
 
-        /////////////////////////////////////////////////////////////////////////
-
-    /*
+        /*
     AC #2: drivers should not able to create a car
     Given driver is on the homePage
     When user select “Vehicles” under Fleet module
     Then “create car” button should not be visible
     */
     }
+
     @Test
     public void negativeTest() throws InterruptedException {
         lgn.goTo();
@@ -107,7 +102,13 @@ public class userStory_2 extends TestBase {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//span[@class='title title-level-2' and normalize-space(.)='Vehicles']")).click();
 
-      //  Assertions.assertTrue(createCarPage.entitySavedMessageText);
+        Thread.sleep(2000);
+
+        try {
+            Assertions.assertFalse(createCarPage.createCarButton.isDisplayed());
+        } catch (Exception e) {
+            Assertions.assertFalse(false);
+        }
 
 
     }
