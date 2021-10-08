@@ -1,7 +1,7 @@
 package com.vytrack.utilities;
 
 
-public class BrowserUtil extends TestBase {
+public class BrowserUtil {
 
     public static void waitFor(int second) {
         try {
