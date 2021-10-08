@@ -35,4 +35,11 @@ public class userStory_1 {
     Given driver is on the homePage
     Then verify user view 4 models names [verify the names]
      */
+    @Test
+    public void testModuleNamesForUser() {
+        login.goTo();
+        login.loginAsTruckDriver();
+        List<String> expected = new ArrayList<>(Arrays.asList("Fleet","Customers","Activities","System"));
+        assertTrue(menuBar.moduleNamesMatch(expected));
+    }
 }
