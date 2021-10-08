@@ -24,28 +24,6 @@ public class userStory_6 extends TestBase {
 
         // clicking on Username dropdown
 
-        /*
-        menuBar.userMenu.click();
-        BrowserUtil.waitFor(5);
-
-        assertEquals("My User", menuBar.myUserTab);
-         */
-
-/*
-        // xpath   ... "//li/a[@class='dropdown-toggle']"
-        //  xpath            //li/a/i[@class='fa-caret-down']
-        WebElement usernameDropdown = driver.findElement(By.xpath("//li/a/i[@class='fa-caret-down']"));
-        usernameDropdown.click();
-
-
-        BrowserUtil.waitFor(3);
-
-        WebElement myUser = driver.findElement(By.linkText("My User"));
-        assertEquals("My User", usernameDropdown.getText() );
-
- */
-
-
         menuBar.userMenu.click();
         BrowserUtil.waitFor(2);
 
@@ -58,13 +36,7 @@ public class userStory_6 extends TestBase {
 
 
 
-        /*
-        assertEquals("My User", usernameDropdown.getText() );
-        assertEquals("My Configuration", usernameDropdown.getText() );
-        assertEquals("My Calendar", usernameDropdown.getText() );
 
-
-         */
 
 
 
