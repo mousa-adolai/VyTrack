@@ -1,23 +1,14 @@
 package com.vytrack.tests;
 
-import com.github.javafaker.Faker;
-import com.sun.xml.internal.ws.policy.AssertionValidationProcessor;
-import com.vytrack.pages.CreateContactPage;
 import com.vytrack.pages.VyTrackLogin;
 import com.vytrack.pages.VyTrack_Homepage;
 import com.vytrack.utilities.BrowserUtil;
 import com.vytrack.utilities.ConfigReader;
 import com.vytrack.utilities.TestBase;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -32,27 +23,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class userStory_10 extends TestBase {
-
+   // create homepage object to use element
    VyTrack_Homepage homepage= new VyTrack_Homepage();
+   // create vyTrackLogin to used elements and methods for usavility purpose
    VyTrackLogin vyTrackLogin= new VyTrackLogin();
+   BrowserUtil browserUtil = new BrowserUtil();
 
     @Test
     public void OroDocumentationAccess()  {
-
+        // calling method to login
         vyTrackLogin.goTo();
         vyTrackLogin.login(ConfigReader.read("username_salesmanager"), ConfigReader.read("password"));
         assertEquals("Dashboard", driver.getTitle());
-
-        // explicit wait - to wait for the compose button to be click-able
+        // explicit wait - to wait for the compose button to be click-able instead of hard waiting
         WebDriverWait wait = new WebDriverWait(driver,30);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'COMPOSE')]")));
-
+        wait.until(ExpectedConditions.visibilityOf(homepage.questionIcon));
         homepage.questionIcon.click();
 
         String winHandleBefore = driver.getWindowHandle();
-
         // Perform the click operation that opens new window
-
         // Switch to new window opened
         for(String winHandle : driver.getWindowHandles()){
             driver.switchTo().window(winHandle);
@@ -60,8 +49,3 @@ public class userStory_10 extends TestBase {
         assertEquals("Welcome to Oro Documentation", driver.getTitle());
     }
 }
-
-
-//// Perform the actions on new window
-//
-//// Close the new window, if that window no more required
