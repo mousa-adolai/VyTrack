@@ -71,12 +71,13 @@ public class userStory_2 extends TestBase {
         createCarPage.saveAndCloseButton.click();
         // Then verify “Entity saved” confirm message
         String expectedTitle = "Entity saved";
-
-        WebElement text = driver.findElement(By.xpath("//*[normalize-space(.)='Entity saved']"));
+        WebElement text = driver.findElement(By.xpath("//div[@class='flash-messages-holder']"));
         WebDriverWait wait = new WebDriverWait(driver, 60);
         WebElement element = wait.until(ExpectedConditions.visibilityOf(text));
         // Then verify “Entity saved” confirm message
-        String actualTitle = driver.findElement(By.xpath("//*[normalize-space(.)='Entity saved']")).getText();
+        //String actualTitle = driver.findElement(By.xpath("//*[normalize-space(.)='Entity saved']")).getText();
+        String actualTitle = driver.findElement(By.xpath("//div[@class='flash-messages-holder']")).getText();
+        ////div[@class='flash-messages-holder']
         Assertions.assertEquals(actualTitle, expectedTitle);
 
         /*
@@ -86,6 +87,7 @@ public class userStory_2 extends TestBase {
     Then “create car” button should not be visible
     */
     }
+
 
     @Test
     public void negativeTest() throws InterruptedException {
