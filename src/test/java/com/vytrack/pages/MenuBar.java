@@ -5,7 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MenuBar {
+    @FindBy(css = "ul.nav-multilevel.main-menu>li.dropdown.dropdown-level-1")
+    public List<WebElement> modules;
 
     @FindBy(xpath = "//a[normalize-space(.)='Dashboards']")
     public WebElement dashboardsTab;
@@ -60,6 +65,14 @@ public class MenuBar {
 
     public MenuBar() {
         PageFactory.initElements(Driver.getDriver(), this);
+    }
+
+    public boolean moduleNamesMatch(List<String> expectedModuleNames){
+        List<String> actualModuleNames = new ArrayList<>();
+        for(WebElement module:modules){
+            actualModuleNames.add(module.getText().trim());
+        }
+        return actualModuleNames.equals(expectedModuleNames);
     }
 
 
