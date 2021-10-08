@@ -40,11 +40,8 @@ public class userStory_2 extends TestBase {
         driver.findElement(By.xpath("//span[@class='title title-level-2' and normalize-space(.)='Vehicles']")).click();
         // And user click “create car” button
         Thread.sleep(5000);
-        // WebElement createCarButton= driver.findElement(By.xpath("//a[normalize-space(.)='Create Car']"));
-        WebElement createCarButton = driver.findElement(By.xpath("//a[@title='Create Car']"));
-//     //a[@title='Create Car']
-        System.out.println("createCarButton.isDisplayed() = " + createCarButton.isDisplayed());
-        actions.moveToElement(createCarButton).doubleClick().perform();
+        System.out.println("createCarButton.isDisplayed() = " + createCarPage.createCarButton.isDisplayed());
+        actions.moveToElement(createCarPage.createCarButton).doubleClick().perform();
         // When user fill out general information
         createCarPage.licensePlate.sendKeys(faker.name().firstName());
         createCarPage.tagsJuniorChechBox.click();
@@ -72,7 +69,6 @@ public class userStory_2 extends TestBase {
         createCarPage.powerBox.sendKeys(faker.numerify("##########"));
         // And click “Save and Close” button
         createCarPage.saveAndCloseButton.click();
-
         // Then verify “Entity saved” confirm message
         String expectedTitle = "Entity saved";
 
