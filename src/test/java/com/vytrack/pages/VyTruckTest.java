@@ -9,7 +9,7 @@ public class VyTruckTest {
 
     //h1.oro-subtitle
     @FindBy(css = "h1.oro-subtitle")
-    public WebElement cutomerAcc;
+    public WebElement customerAcc;
     public VyTruckTest() {
         PageFactory.initElements(Driver.getDriver(), this);
     }

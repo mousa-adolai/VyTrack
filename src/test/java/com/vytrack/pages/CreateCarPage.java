@@ -1,6 +1,7 @@
 package com.vytrack.pages;
 
 import com.vytrack.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -82,7 +83,7 @@ public class CreateCarPage {
     @FindBy(xpath = "//input[starts-with(@id,'custom_entity_type_Logo_file')]")
     public WebElement logoBox;
 
-    @FindBy(xpath = "(//button[normalize-space(.)='Save and Close'])[1]  ")
+    @FindBy(xpath = "//button[normalize-space(.)='Save and Close']")
     public WebElement saveAndCloseButton;
 
     @FindBy(xpath = "//button[.='Today']")
@@ -93,6 +94,8 @@ public class CreateCarPage {
 
     @FindBy(xpath = "//*[normalize-space(.)='Entity saved']")
     public  WebElement entitySavedMessageText;
+
+
 
 
 }

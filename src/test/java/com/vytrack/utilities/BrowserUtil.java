@@ -1,6 +1,8 @@
 package com.vytrack.utilities;
 
 
+import org.openqa.selenium.By;
+
 public class BrowserUtil {
 
     public static void waitFor(int second) {
@@ -11,4 +13,6 @@ public class BrowserUtil {
         }
 
     }
+
+
 }
