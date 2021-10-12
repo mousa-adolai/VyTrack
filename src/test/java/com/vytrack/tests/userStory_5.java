@@ -4,7 +4,10 @@ package com.vytrack.tests;
 import com.github.javafaker.Faker;
 import com.vytrack.pages.VyTrackLogin;
 import com.vytrack.pages.VyTrackVehicleCosts;
+import com.vytrack.utilities.BrowserUtil;
+import com.vytrack.utilities.ConfigReader;
 import com.vytrack.utilities.TestBase;
+import org.junit.jupiter.api.Test;
 
 public class userStory_5 extends TestBase {
 
@@ -12,14 +15,21 @@ public class userStory_5 extends TestBase {
      * 5. Story: As a user, I should be to select accounts from accounts page
      */
 
+
     VyTrackLogin trackLogin = new VyTrackLogin();
     VyTrackVehicleCosts vehicleCosts = new VyTrackVehicleCosts();
     Faker faker = new Faker();
 
+    @Test
+    public void userSelectAccountsFromAccountsPage() {
+        // Given user is on the homePage
+        trackLogin.goTo();
+        trackLogin.login(ConfigReader.read("truckDriver1"), ConfigReader.read("password"));
+        BrowserUtil.waitFor(2);
 
 
+    }
 }
-
 
 
 /*
