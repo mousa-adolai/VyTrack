@@ -51,10 +51,12 @@ public class DriverCreatesOdometer extends TestBase {
         CreateVehicleOdometer vehicleOdometerInfo = new CreateVehicleOdometer();
         vehicleOdometerInfo.createVehicleOdometer1();
 
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),2);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"flash-messages\"]/div/div") ));
+        WebElement confMsg = Driver.getDriver().findElement(By.xpath("//div[@text()='Entity saved']"));
+        assertEquals(confMsg,"Entity saved");
+
 
         driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+
 
     }
 

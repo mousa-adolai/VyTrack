@@ -2,6 +2,7 @@ package com.vytrack.tests.us8_VehicleOdometer;
 
 import com.vytrack.pages.VyTrackLogin;
 import com.vytrack.pages.VyTruckDashboardDriverLoggedIn;
+import com.vytrack.utilities.BrowserUtil;
 import com.vytrack.utilities.ConfigReader;
 import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.TestBase;
@@ -23,7 +24,7 @@ public class SalesStoreMAnagerCreatesOdometer  {
             Map<String, String> credentials = new LinkedHashMap<>();
             credentials.put("storemanager71", "UserUser123");
             credentials.put("storemanager72", "UserUser123");
-           // credentials.put("salesmanager131", "UserUser123");
+            // credentials.put("salesmanager131", "UserUser123");
              credentials.put("salesmanager132", "UserUser123");
             //credentials.put("salesmanager133", "UserUser123");
 
@@ -31,6 +32,9 @@ public class SalesStoreMAnagerCreatesOdometer  {
                     VyTrackLogin loginPage = new VyTrackLogin();
                     loginPage.goTo();
                     loginPage.login(eachCredentials.getKey(),eachCredentials.getValue());
+
+                    Driver.getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+
 
                     VyTruckDashboardDriverLoggedIn dashboardElm = new VyTruckDashboardDriverLoggedIn();
                     Actions actions = new Actions(Driver.getDriver());
