@@ -95,6 +95,9 @@ public class CreateCarPage {
     @FindBy(xpath = "//*[normalize-space(.)='Entity saved']")
     public  WebElement entitySavedMessageText;
 
+    @FindBy(xpath="//div[@class='pull-right pinned-dropdown']")
+    public WebElement saveAndClose;
+
 
 
 

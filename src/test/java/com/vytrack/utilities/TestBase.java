@@ -18,6 +18,6 @@ public abstract class TestBase {
     }
     @AfterEach
     public void closeBrowser(){
-      //  Driver.closeBrowser();
+        Driver.closeBrowser();
     }
 }
