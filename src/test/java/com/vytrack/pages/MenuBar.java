@@ -21,7 +21,7 @@ public class MenuBar {
     @FindBy(linkText = "Vehicles")
     public WebElement vehiclesTab;
 
-    @FindBy(xpath = "//a[normalize-space(.)='Activities']")
+    @FindBy(xpath = "//a[normalize-space(.)='Customers']")
     public WebElement customersTab;
 
     @FindBy(linkText = "Contacts")
